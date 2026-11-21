@@ -1675,3 +1675,55 @@ h1,h2,h3,.brand-text{font-family:'Manrope','Inter',sans-serif;letter-spacing:-.0
   from { opacity: 0; transform: translateY(7px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+
+/* LANGUAGE SWITCHER */
+.language-switch{display:flex;align-items:center;gap:4px;flex-shrink:0;padding:4px;border:1px solid #b8ddec;border-radius:999px;background:#fff}
+.language-switch a{padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;white-space:nowrap;color:#174b66;text-decoration:none}
+.language-switch a.is-current,.language-switch a:hover{background:#008fc5;color:#fff}
+html[lang="my"] body{font-family:'Noto Sans Myanmar',system-ui,sans-serif}
+html[lang="my"] h1,html[lang="my"] h2,html[lang="my"] h3,html[lang="my"] h4{line-height:1.6;overflow-wrap:anywhere}
+html[lang="my"] p,html[lang="my"] a,html[lang="my"] label{line-height:1.8}
+@media(max-width:900px){.header-inner{flex-wrap:wrap}.language-switch{margin-left:auto}.menu-toggle{flex-shrink:0}}
+@media(max-width:400px){.language-switch a{font-size:11px;padding:5px 7px}}
+/* LIGHTBOX */
+.project-zoom{display:block;width:100%;height:100%;padding:0;margin:0;border:0;background:transparent;cursor:zoom-in;overflow:hidden;border-radius:inherit}
+.project-zoom img{display:block;width:100%;height:100%;object-fit:cover}
+.project-zoom:focus-visible{outline:3px solid #00aeef;outline-offset:-3px}
+.lightbox[hidden]{display:none!important}
+.lightbox{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:rgba(2,16,28,.94);padding:64px 58px;color:white}
+.lightbox-image{max-width:100%;max-height:calc(100dvh - 135px);object-fit:contain;border-radius:6px}
+.lightbox button{position:absolute;z-index:1;display:grid;place-items:center;border:1px solid rgba(255,255,255,.25);border-radius:50%;width:44px;height:44px;color:#fff;background:rgba(255,255,255,.13);font-size:32px;cursor:pointer}
+.lightbox button:hover,.lightbox button:focus-visible{background:#008fc5}
+.lightbox-close{top:15px;right:15px}.lightbox-prev{left:10px;top:50%;transform:translateY(-50%)}.lightbox-next{right:10px;top:50%;transform:translateY(-50%)}
+.lightbox-counter{position:absolute;bottom:18px;font-size:13px;color:#fff}
+body.lightbox-open{overflow:hidden}
+@media(max-width:640px){.lightbox{padding:58px 8px 70px}.lightbox button{width:36px;height:36px;font-size:26px}.lightbox-prev{left:5px}.lightbox-next{right:5px}}
+
+
+/* Mobile Header: Logo | Language | Hamburger */
+@media (max-width: 900px) {
+  .header-inner {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .header-inner .brand {
+    margin-right: auto;
+    min-width: 0;
+  }
+
+  .header-inner .language-switch {
+    order: 2;
+    margin-left: 0;
+    flex-shrink: 0;
+  }
+
+  .header-inner .menu-toggle {
+    order: 3;
+    margin-left: 0;
+    flex-shrink: 0;
+  }
+}
