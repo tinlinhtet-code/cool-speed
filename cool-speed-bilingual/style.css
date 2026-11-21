@@ -200,7 +200,7 @@ button {
   margin-right:6px
 }
 .hero h1,.section h2 {
-  font:800 clamp(34px,4.2vw,60px)/1.14 Manrope,sans-serif;
+  font:800 clamp(34px,4vw,60px)/1.14 Manrope,sans-serif;
   letter-spacing:-.04em;
   color:var(--navy);
   margin:0 0 24px
@@ -210,7 +210,7 @@ button {
   color:var(--deep)
 }
 .hero-lead {
-  font-size:17px;
+  font-size:15px;
   color:var(--muted);
   line-height:1.85;
   max-width:530px
@@ -447,6 +447,7 @@ button {
 .about-copy>p:not(.eyebrow) {
   font-size:15px;
   line-height:1.85;
+  text-align: justify;
   color:var(--muted)
 }
 .feature-list {
@@ -513,6 +514,7 @@ button {
 .foam-intro p {
   font-size:15px;
   line-height:1.85;
+  text-align: justify;
   color:var(--muted)
 }
 .foam-intro img {
@@ -1091,6 +1093,9 @@ td {
   }
   .section-heading>p {
     margin-top:15px
+  }
+  .section-heading-paragraph {
+    text-align: justify;
   }
   .foam-intro,.technical-grid,.types-grid,.services-grid,.contact-grid {
     grid-template-columns:1fr
