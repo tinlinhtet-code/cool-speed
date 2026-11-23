@@ -1,9 +1,45 @@
-// ============================================================
-// 01. MOBILE NAVIGATION
-// ============================================================
+
+ // ============================================================
+ // 01. MOBILE NAVIGATION
+ // ============================================================
 "use strict";
+
+// EN / Myanmar language detection
+const isMyanmar = document.documentElement.lang === 'my';
+
 const toggle=document.getElementById('menu-toggle'),nav=document.getElementById('main-navigation');
-if(toggle&&nav){const close=()=>{nav.classList.remove('active');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation menu')};toggle.addEventListener('click',()=>{const open=nav.classList.toggle('active');toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu')});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));document.addEventListener('click',e=>{if(!nav.contains(e.target)&&!toggle.contains(e.target))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});window.matchMedia('(min-width: 901px)').addEventListener('change',close)}
+
+if(toggle&&nav){
+  const menuLabel = open => isMyanmar
+    ? (open ? 'မီနူးပိတ်ရန်' : 'မီနူးဖွင့်ရန်')
+    : (open ? 'Close navigation menu' : 'Open navigation menu');
+
+  const close=()=>{
+    nav.classList.remove('active');
+    toggle.setAttribute('aria-expanded','false');
+    toggle.setAttribute('aria-label',menuLabel(false));
+  };
+
+  toggle.setAttribute('aria-label',menuLabel(false));
+
+  toggle.addEventListener('click',()=>{
+    const open=nav.classList.toggle('active');
+    toggle.setAttribute('aria-expanded',String(open));
+    toggle.setAttribute('aria-label',menuLabel(open));
+  });
+
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+
+  document.addEventListener('click',e=>{
+    if(!nav.contains(e.target)&&!toggle.contains(e.target))close();
+  });
+
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape')close();
+  });
+
+  window.matchMedia('(min-width: 901px)').addEventListener('change',close);
+}
 
 // ============================================================
 // 02. FOOTER YEAR
@@ -31,7 +67,14 @@ if (gallery) {
     gallery.classList.toggle('is-animated', !motion.matches);
     gallery.classList.toggle('is-paused', paused);
     pause.hidden = motion.matches;
-    pause.textContent = paused ? 'Resume logo animation' : 'Pause logo animation';
+
+    pause.textContent = isMyanmar
+      ? (paused
+          ? 'လိုဂိုများ ပြန်လည်ရွေ့လျားရန်'
+          : 'လိုဂိုများ ရပ်ရန်')
+      : (paused
+          ? 'Resume logo animation'
+          : 'Pause logo animation');
   }
 
   pause.addEventListener('click', () => {
