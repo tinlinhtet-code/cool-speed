@@ -1370,6 +1370,7 @@ td {
   border: 2px solid #fff;
   border-radius: 50%;
   background: var(--deep);
+  opacity: 50%;
   color: #fff;
   font-size: 27px;
   font-weight: 700;
@@ -1378,7 +1379,7 @@ td {
 }
 .back-to-top:hover {
   transform: translateY(-5px);
-  background: var(--navy);
+  background: var(--blue);
 }
 /* ============================================================
    07. RESPONSIVE — mobile / tablet
